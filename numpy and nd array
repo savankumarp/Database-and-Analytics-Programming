@@ -1,0 +1,30 @@
+import numpy as np
+
+# Create a 1D array containing numbers from 0 (included) to 1000 (excluded) with a step of 5
+array_1d = np.arange(0, 1000, 5)
+
+# Reshape the 1D array to have 4 layers, 10 rows, and 5 columns
+array_a = array_1d.reshape(4, 10, 5)
+
+# Print the resulting ndarray
+print(array_a)
+
+
+# Extract the third layer and last two rows
+third_layer = array_a[2, -2:]
+
+# Compute the median for each of the last two rows
+medians = np.median(third_layer, axis=1)
+
+# Print the resulting 1D array with two separate median values
+print(medians)
+
+
+# Select the last three columns across all layers
+last_three_columns = array_a[:, :, -3:]
+
+# Compute the product of all cells in these columns
+product = np.prod(last_three_columns)
+
+# Print the resulting scalar value
+print(product)
