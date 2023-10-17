@@ -1,0 +1,45 @@
+import numpy as np
+
+start = 200
+end = 800  # Note that we use 800 instead of 799 to include the endpoint
+step = 2  # We use a step of 2 to only include even numbers
+
+even_numbers = np.arange(start, end, step)
+print(even_numbers)
+
+
+even_numbers = np.arange(start, end, step)
+
+# Reshape the array to have 25 rows and 12 columns
+even_numbers_2d = even_numbers.reshape(25, 12)
+
+print(even_numbers_2d)
+
+
+# Select all data from the third and fourth columns
+third_and_fourth_columns = even_numbers_2d[:, 2:4]
+
+print(third_and_fourth_columns)
+
+
+# Split the array into 4 separate arrays column-wise
+split_arrays = np.split(even_numbers_2d, 4, axis=1)
+
+# Printing the 4 resulting arrays
+for i, arr in enumerate(split_arrays):
+    print(f"Array {i + 1}:")
+    print(arr)
+
+
+# Select the first split array
+first_split_array = split_arrays[0]
+
+# Sum up the row values for the 1st and 3rd columns
+column1 = first_split_array[:, 0]  # 1st column
+column3 = first_split_array[:, 2]  # 3rd column
+
+# Sum the values for the 1st and 3rd columns
+sum_result = np.sum([column1, column3], axis=0)
+
+print("Sum of row values for the 1st and 3rd columns in the first split array:")
+print(sum_result)
