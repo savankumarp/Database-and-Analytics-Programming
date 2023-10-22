@@ -4,3 +4,9 @@ import xml.etree.ElementTree as ET
 # Read XML file
 tree = ET.parse('people.xml')
 root = tree.getroot()
+
+# Root
+# Print (root.tag)
+# Print (len(root))
+
+
