@@ -1,0 +1,94 @@
+import numpy as np
+
+matrix1 = np.array([[[1, 2, 3], [4, 5, 6], [7, 8, 9]],
+                   [[10, 11, 12], [13, 14, 15], [16, 17, 18]],
+                   [[19, 20, 21], [22, 23, 24], [25, 26, 27]]])
+
+matrix2 = np.array([[[9, 8, 7], [6, 5, 4], [3, 2, 1]],
+                   [[27, 26, 25], [24, 23, 22], [21, 20, 19]],
+                   [[18, 17, 16], [15, 14, 13], [12, 11, 10]]])
+
+
+
+#1Extract the diagonal from the each dimension of each matrix.
+# Extract diagonals from Matrix1
+diagonal_dim1_matrix1 = matrix1.diagonal(axis1=1, axis2=2)
+diagonal_dim2_matrix1 = matrix1.diagonal(axis1=0, axis2=2)
+diagonal_dim3_matrix1 = matrix1.diagonal(axis1=0, axis2=1)
+
+# Extract diagonals from Matrix2
+diagonal_dim1_matrix2 = matrix2.diagonal(axis1=1, axis2=2)
+diagonal_dim2_matrix2 = matrix2.diagonal(axis1=0, axis2=2)
+diagonal_dim3_matrix2 = matrix2.diagonal(axis1=0, axis2=1)
+
+
+print(diagonal_dim1_matrix1)
+print(diagonal_dim1_matrix2)
+
+
+
+
+#2Take sum of diagonals obtained from Matrix1 and Matrix2 element-wise to get a new 2Dmatrix.
+# Sum the diagonals element-wise
+result_sum = diagonal_dim1_matrix1  + diagonal_dim1_matrix2 
+
+# Print the result
+print(result_sum)
+
+
+
+
+#3Take product of diagonals obtained from Matrix1 and Matrix2 element-wise to get a new 2D matrix.
+# Take the element-wise product of diagonals
+result_product = (diagonal_dim1_matrix1*diagonal_dim1_matrix2)
+
+# Print the result
+print(result_product)
+
+
+
+#4Calculate the sum of all the elements in the resulting product.
+
+sum_elemenets=np.sum(result_product)
+print(sum_elemenets)
+
+
+
+
+#5Calculate the variance of the values in the flattened (1D) version of the matrices. Hint use Numpy varfunction
+
+# Flatten both matrices
+flat_matrix1 = matrix1.flatten()
+flat_matrix2 = matrix2.flatten()
+
+# Calculate the variance of the flattened matrices
+variance_matrix1 = np.var(flat_matrix1)
+variance_matrix2 = np.var(flat_matrix2)
+
+# Print the variances
+print("Variance of Matrix1:", variance_matrix1)
+print("Variance of Matrix2:", variance_matrix2)
+
+
+
+#6Create two new ndarrays each containing 10 values. The first should have evenly spaced values from 20to 60. 
+#The second should contain evenly spaced values from 10 to 30. Add together corresponding array
+#entry values from each of the two arrays, i.e. perform the addition element-wise.
+
+# Create the first array with values from 20 to 60
+array1 = np.linspace(20, 60, 10)
+
+# Create the second array with values from 10 to 30
+array2 = np.linspace(10, 30, 10)
+
+# Perform element-wise addition
+result = array1 + array2
+
+print("Array 1:")
+print(array1)
+
+print("Array 2:")
+print(array2)
+
+print("Element-wise addition:")
+print(result)
